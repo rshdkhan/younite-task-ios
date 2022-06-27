@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,24 +12,24 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="181" id="KGk-i7-Jjw" customClass="HomeTableViewCell" customModule="younite_task_ios" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4F-di-KDq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
+                        <rect key="frame" x="16" y="8" width="288" height="173"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YzF-Q2-dEX">
-                                <rect key="frame" x="8" y="8" width="304" height="130"/>
+                                <rect key="frame" x="8" y="8" width="272" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="KfH-TK-kxB"/>
                                 </constraints>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jwF-GF-mUP">
-                                <rect key="frame" x="8" y="154" width="304" height="4"/>
+                                <rect key="frame" x="8" y="154" width="272" height="4"/>
                             </progressView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jwF-GF-mUP" firstAttribute="trailing" secondItem="YzF-Q2-dEX" secondAttribute="trailing" id="3Bn-vb-FDp"/>
                             <constraint firstItem="jwF-GF-mUP" firstAttribute="top" secondItem="YzF-Q2-dEX" secondAttribute="bottom" constant="16" id="99m-FU-Gcb"/>
@@ -40,26 +39,38 @@
                             <constraint firstItem="YzF-Q2-dEX" firstAttribute="leading" secondItem="h4F-di-KDq" secondAttribute="leading" constant="8" id="pkh-s6-f5V"/>
                             <constraint firstItem="jwF-GF-mUP" firstAttribute="leading" secondItem="YzF-Q2-dEX" secondAttribute="leading" id="ukJ-5J-jyr"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" systemColor="systemGray3Color"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="h4F-di-KDq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6nJ-i6-AxH"/>
+                    <constraint firstItem="h4F-di-KDq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6nJ-i6-AxH"/>
                     <constraint firstAttribute="bottom" secondItem="h4F-di-KDq" secondAttribute="bottom" constant="8" id="H1j-ZF-nZK"/>
-                    <constraint firstAttribute="trailing" secondItem="h4F-di-KDq" secondAttribute="trailing" id="KS9-aZ-UxQ"/>
-                    <constraint firstItem="h4F-di-KDq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bnf-5F-yr0"/>
+                    <constraint firstAttribute="trailing" secondItem="h4F-di-KDq" secondAttribute="trailing" constant="16" id="KS9-aZ-UxQ"/>
+                    <constraint firstItem="h4F-di-KDq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bnf-5F-yr0"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="ivDownloadedImage" destination="YzF-Q2-dEX" id="ZoR-uk-3b9"/>
                 <outlet property="progressBar" destination="jwF-GF-mUP" id="0Sr-dk-8lL"/>
+                <outlet property="viewBG" destination="h4F-di-KDq" id="AOa-GH-Gb7"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="142.96875"/>
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -50,13 +50,12 @@ class HomeViewController: UIViewController {
 extension HomeViewController: MultiPeerDelegate {
     func multiPeer(didReceiveData data: Data, ofType type: UInt32) {
         if type == DataType.image.rawValue {
-            let alert = UIAlertController(title: "Image Received", message: "You received image", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Show", style: .default, handler: { action in
+
+            self.showAlert(title: "Image Received", message: "Tap show button to view the received image") {
                 let detailsVC = DetailsViewController(nibName: "DetailsViewController", bundle: nil)
                 detailsVC.image = UIImage(data: data)
                 self.present(detailsVC, animated: true)
-            }))
-            self.present(alert, animated: true)
+            }
         }
     }
 
@@ -106,7 +105,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.imagesArray[indexPath.row].progress < 1 {
-            return
+            self.showAlert(title: "Wait", message: "Please wait for image to download then try to share it") {
+            }
         }
 
         let actionsheet = UIAlertController(title: "Share", message: "", preferredStyle: .actionSheet)

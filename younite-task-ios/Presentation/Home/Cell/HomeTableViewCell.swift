@@ -8,13 +8,14 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
+    @IBOutlet weak var viewBG: UIView!
     @IBOutlet weak var ivDownloadedImage: UIImageView!
     @IBOutlet weak var progressBar: UIProgressView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        
+        self.selectionStyle = .none
     }
 
     func configure(downloadedImage: Data?, progress: Double) {

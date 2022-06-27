@@ -19,6 +19,8 @@
 		5CB1BB79286887FE0046FB12 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1BB78286887FE0046FB12 /* NetworkClient.swift */; };
 		5CB1BB7D2869D4600046FB12 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1BB7B2869D4600046FB12 /* DetailsViewController.swift */; };
 		5CB1BB7E2869D4600046FB12 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CB1BB7C2869D4600046FB12 /* DetailsViewController.xib */; };
+		5CB1BB812869D7D80046FB12 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1BB802869D7D80046FB12 /* UIViewExt.swift */; };
+		5CB1BB832869D8A80046FB12 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1BB822869D8A80046FB12 /* UIViewControllerExt.swift */; };
 		CDB7C0800F4C98A9723CA8A3 /* Pods_younite_task_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4129FCEAE81C62CA46D3D32C /* Pods_younite_task_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		5CB1BB78286887FE0046FB12 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		5CB1BB7B2869D4600046FB12 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		5CB1BB7C2869D4600046FB12 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		5CB1BB802869D7D80046FB12 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		5CB1BB822869D8A80046FB12 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		5CB1BB592868814A0046FB12 /* younite-task-ios */ = {
 			isa = PBXGroup;
 			children = (
+				5CB1BB7F2869D7BB0046FB12 /* Extensions */,
 				5CB1BB77286887C40046FB12 /* Data */,
 				5CB1BB6E286881840046FB12 /* Presentation */,
 				5CB1BB5A2868814A0046FB12 /* AppDelegate.swift */,
@@ -130,6 +135,15 @@
 				5CB1BB7C2869D4600046FB12 /* DetailsViewController.xib */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		5CB1BB7F2869D7BB0046FB12 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5CB1BB802869D7D80046FB12 /* UIViewExt.swift */,
+				5CB1BB822869D8A80046FB12 /* UIViewControllerExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7FA04395962AA26102630010 /* Pods */ = {
@@ -268,8 +282,10 @@
 			files = (
 				5CB1BB5F2868814A0046FB12 /* HomeViewController.swift in Sources */,
 				5CB1BB75286883FC0046FB12 /* HomeTableViewCell.swift in Sources */,
+				5CB1BB832869D8A80046FB12 /* UIViewControllerExt.swift in Sources */,
 				5CB1BB5B2868814A0046FB12 /* AppDelegate.swift in Sources */,
 				5CB1BB5D2868814A0046FB12 /* SceneDelegate.swift in Sources */,
+				5CB1BB812869D7D80046FB12 /* UIViewExt.swift in Sources */,
 				5CB1BB7D2869D4600046FB12 /* DetailsViewController.swift in Sources */,
 				5CB1BB71286881A20046FB12 /* HomeViewPresenter.swift in Sources */,
 				5CB1BB79286887FE0046FB12 /* NetworkClient.swift in Sources */,
