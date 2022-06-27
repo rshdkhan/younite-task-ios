@@ -27,20 +27,23 @@ class HomeViewPresenter: HomePresenterInput {
 
     func downloadImages(urls: [String]) {
 
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-            guard let self = self else { return }
+        for stringUrl in urls {
+            if let path = self.destinationPath() {
 
-            for stringUrl in urls {
-                if let path = self.destinationPath() {
+                DispatchQueue.global(qos: .background).async { [weak self] in
+                    guard let self = self else { return }
+
+                    print("isMainThread >> \(Thread.isMainThread)")
+
                     self.networkClient.download(url: stringUrl, atPath: path) { progress, url in
                         self.presenterOutputs.homePresenter(url: url.absoluteString, progress: progress)
                     } completion: { data, url in
                         self.presenterOutputs.homePresenter(downloadedImage: url, data: data)
                     }
-
                 }
             }
         }
+
     }
 
     private func destinationPath() -> URL? {

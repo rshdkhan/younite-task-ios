@@ -42,7 +42,7 @@ extension HomeViewController: HomePreseterOutputs {
         for index in 0...imagesArray.count - 1 {
             if url == imagesArray[index].url {
                 imagesArray[index].fileData = data
-                tableView.reloadData()
+                tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
             }
         }
     }
@@ -51,7 +51,7 @@ extension HomeViewController: HomePreseterOutputs {
         for index in 0...imagesArray.count - 1 {
             if OfImage == imagesArray[index].url {
                 imagesArray[index].progress = progress
-                tableView.reloadData()
+                tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
             }
         }
     }
@@ -67,6 +67,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.configure(downloadedImage: imagesArray[indexPath.row].fileData, progress: imagesArray[indexPath.row].progress)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.imagesArray[indexPath.row].progress < 1 {
+            return
+        }
+
+        
+        let actionsheet = UIAlertController(title: "Share", message: "", preferredStyle: .actionSheet)
+
+        actionsheet.addAction(UIAlertAction(title: "Share", style: .default, handler: { action in
+
+        }))
+
+        actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        self.present(actionsheet, animated: true)
     }
 }
 

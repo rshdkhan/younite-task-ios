@@ -24,13 +24,11 @@ class NetworkClientImp: NetworkClient {
                     completion(data, url)
                     break
                 case .failure(let error):
-                    print("error occured >>> \(error)")
-                    
+                    // TODO: handle failure case
                     break
             }
         }.downloadProgress { cProgress in
             progress(cProgress.fractionCompleted, URL(string: url)!)
-            print("progress >>> \(cProgress.fractionCompleted)")
         }
     }
 }
