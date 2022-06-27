@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import MultiPeer
+
+enum DataType: UInt32 {
+    case image = 1
+}
+
 
 struct Test {
     var url: String
@@ -34,24 +40,50 @@ class HomeViewController: UIViewController {
         
         presenter = HomeViewPresenter(networkClient: NetworkClientImp(), presenterOutput: self)
         presenter.downloadImages(urls: imagesArray.map { $0.url })
+
+        MultiPeer.instance.delegate = self
+        MultiPeer.instance.initialize(serviceType: "younite-task")
+        MultiPeer.instance.autoConnect()
+    }
+}
+
+extension HomeViewController: MultiPeerDelegate {
+    func multiPeer(didReceiveData data: Data, ofType type: UInt32) {
+        if type == DataType.image.rawValue {
+            let alert = UIAlertController(title: "Image Received", message: "You received image", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
+    }
+
+    func multiPeer(connectedDevicesChanged devices: [String]) {
+
     }
 }
 
 extension HomeViewController: HomePreseterOutputs {
     func homePresenter(downloadedImage url: String, data: Data) {
-        for index in 0...imagesArray.count - 1 {
-            if url == imagesArray[index].url {
-                imagesArray[index].fileData = data
-                tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            for index in 0...self.imagesArray.count - 1 {
+                if url == self.imagesArray[index].url {
+                    self.imagesArray[index].fileData = data
+                    self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+                }
             }
         }
     }
 
     func homePresenter(url OfImage: String, progress: Double) {
-        for index in 0...imagesArray.count - 1 {
-            if OfImage == imagesArray[index].url {
-                imagesArray[index].progress = progress
-                tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            for index in 0...self.imagesArray.count - 1 {
+                if OfImage == self.imagesArray[index].url {
+                    self.imagesArray[index].progress = progress
+                    self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+                }
             }
         }
     }
@@ -74,11 +106,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
 
-        
         let actionsheet = UIAlertController(title: "Share", message: "", preferredStyle: .actionSheet)
 
         actionsheet.addAction(UIAlertAction(title: "Share", style: .default, handler: { action in
+            MultiPeer.instance.stopSearching()
 
+            defer {
+                MultiPeer.instance.autoConnect()
+            }
+
+
+            if let imageData = self.imagesArray[indexPath.row].fileData {
+                MultiPeer.instance.send(data: imageData, type: DataType.image.rawValue)
+            }
         }))
 
         actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

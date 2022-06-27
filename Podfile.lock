@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.6.1)
+  - MultiPeer (0.1.0)
 
 DEPENDENCIES:
   - Alamofire
+  - MultiPeer (= 0.1.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - MultiPeer
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  MultiPeer: 8be1b3b47faa9d2e94b4c8c29a2d984eb0d68007
 
-PODFILE CHECKSUM: 75dd3377f0ea3ff4c514d48e2dadb1fead6a4f01
+PODFILE CHECKSUM: cb9e6e20539c558961414c32ee26db3d4a54d540
 
 COCOAPODS: 1.11.3

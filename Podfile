@@ -7,5 +7,6 @@ target 'younite-task-ios' do
 
   # Pods for younite-task-ios
   pod 'Alamofire'
+  pod 'MultiPeer', '0.1.0'
 
 end
