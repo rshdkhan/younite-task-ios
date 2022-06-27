@@ -17,6 +17,8 @@
 		5CB1BB75286883FC0046FB12 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1BB73286883FC0046FB12 /* HomeTableViewCell.swift */; };
 		5CB1BB76286883FC0046FB12 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CB1BB74286883FC0046FB12 /* HomeTableViewCell.xib */; };
 		5CB1BB79286887FE0046FB12 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1BB78286887FE0046FB12 /* NetworkClient.swift */; };
+		5CB1BB7D2869D4600046FB12 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1BB7B2869D4600046FB12 /* DetailsViewController.swift */; };
+		5CB1BB7E2869D4600046FB12 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CB1BB7C2869D4600046FB12 /* DetailsViewController.xib */; };
 		CDB7C0800F4C98A9723CA8A3 /* Pods_younite_task_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4129FCEAE81C62CA46D3D32C /* Pods_younite_task_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		5CB1BB73286883FC0046FB12 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		5CB1BB74286883FC0046FB12 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		5CB1BB78286887FE0046FB12 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		5CB1BB7B2869D4600046FB12 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		5CB1BB7C2869D4600046FB12 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		5CB1BB6E286881840046FB12 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5CB1BB7A2869D4200046FB12 /* Details */,
 				5CB1BB6F2868818F0046FB12 /* Home */,
 			);
 			path = Presentation;
@@ -118,13 +123,21 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		5CB1BB7A2869D4200046FB12 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				5CB1BB7B2869D4600046FB12 /* DetailsViewController.swift */,
+				5CB1BB7C2869D4600046FB12 /* DetailsViewController.xib */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		7FA04395962AA26102630010 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				49E4EBF9256EBDFDC4E0191D /* Pods-younite-task-ios.debug.xcconfig */,
 				2EE825B123A493712DA895E3 /* Pods-younite-task-ios.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -198,6 +211,7 @@
 			files = (
 				5CB1BB672868814C0046FB12 /* LaunchScreen.storyboard in Resources */,
 				5CB1BB642868814C0046FB12 /* Assets.xcassets in Resources */,
+				5CB1BB7E2869D4600046FB12 /* DetailsViewController.xib in Resources */,
 				5CB1BB76286883FC0046FB12 /* HomeTableViewCell.xib in Resources */,
 				5CB1BB622868814A0046FB12 /* Main.storyboard in Resources */,
 			);
@@ -256,6 +270,7 @@
 				5CB1BB75286883FC0046FB12 /* HomeTableViewCell.swift in Sources */,
 				5CB1BB5B2868814A0046FB12 /* AppDelegate.swift in Sources */,
 				5CB1BB5D2868814A0046FB12 /* SceneDelegate.swift in Sources */,
+				5CB1BB7D2869D4600046FB12 /* DetailsViewController.swift in Sources */,
 				5CB1BB71286881A20046FB12 /* HomeViewPresenter.swift in Sources */,
 				5CB1BB79286887FE0046FB12 /* NetworkClient.swift in Sources */,
 			);

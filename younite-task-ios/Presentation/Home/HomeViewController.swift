@@ -51,13 +51,16 @@ extension HomeViewController: MultiPeerDelegate {
     func multiPeer(didReceiveData data: Data, ofType type: UInt32) {
         if type == DataType.image.rawValue {
             let alert = UIAlertController(title: "Image Received", message: "You received image", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Show", style: .default, handler: { action in
+                let detailsVC = DetailsViewController(nibName: "DetailsViewController", bundle: nil)
+                detailsVC.image = UIImage(data: data)
+                self.present(detailsVC, animated: true)
+            }))
             self.present(alert, animated: true)
         }
     }
 
     func multiPeer(connectedDevicesChanged devices: [String]) {
-
     }
 }
 
